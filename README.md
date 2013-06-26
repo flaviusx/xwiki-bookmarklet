@@ -1,0 +1,4 @@
+xwiki-bookmarklet
+=================
+
+XWiki Bookmarklet
