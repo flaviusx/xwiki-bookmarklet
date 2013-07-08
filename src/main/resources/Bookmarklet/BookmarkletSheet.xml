@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Bookmarklet</web>
+<name>BookmarkletSheet</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1372260722000</creationDate>
+<date>1373280378000</date>
+<contentUpdateDate>1373280338000</contentUpdateDate>
+<version>3.29</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>true</minorEdit>
+<syntaxId>xwiki/2.1</syntaxId>
+<hidden>false</hidden>
+<object>
+<class>
+<name>XWiki.JavaScriptExtension</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<cache>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>cache</name>
+<number>5</number>
+<prettyName>Caching policy</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>long|short|default|forbid</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</cache>
+<code>
+<disabled>0</disabled>
+<name>code</name>
+<number>2</number>
+<prettyName>Code</prettyName>
+<rows>20</rows>
+<size>50</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</code>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<parse>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>yesno</displayType>
+<name>parse</name>
+<number>4</number>
+<prettyName>Parse content</prettyName>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</parse>
+<use>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>use</name>
+<number>3</number>
+<prettyName>Use this extension</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</use>
+</class>
+<name>Bookmarklet.BookmarkletSheet</name>
+<number>0</number>
+<className>XWiki.JavaScriptExtension</className>
+<guid>80c45379-d5e8-44b3-b3d6-dec8ee21031b</guid>
+<property>
+<cache>long</cache>
+</property>
+<property>
+<code></code>
+</property>
+<property>
+<name></name>
+</property>
+<property>
+<parse></parse>
+</property>
+<property>
+<use>currentPage</use>
+</property>
+</object>
+<content>{{velocity}}
+{{html}}
+#set ($parent = $doc.display('parent'))
+#if ($parent == '')
+  #set ($parent = "$!request.getParameter('parent')")
+#end
+#if ($parent == '')
+  #set ($parentReference = $services.model.createDocumentReference($doc.documentReference.wikiReference.name, $doc.documentReference.lastSpaceReference.name, $doc.documentReference.name))
+  #set ($parent = $services.model.serialize($parentReference, 'local'))
+#end
+#set ($template = $doc.display('template'))
+#if ($template == '')
+  #set($template = "$!request.getParameter('template')")
+#end
+#set ($space = $doc.display('space'))
+#if ($space == '')
+  #set ($space = "$!request.getParameter('space')")
+#end
+#set ($page = $doc.display('page'))
+#if ($page == '')
+  #set ($page = "$!request.getParameter('page')")
+#end
+#if ("$!page" != '' &amp;&amp; "$!space" != "")
+  #set ($docReference = $services.model.createDocumentReference($context.getDatabase(), $space, $page))
+  #if ($xwiki.hasAccessLevel('edit', $context.user, $services.model.serialize($docReference)))
+    #set ($document = $xwiki.getDocument($docReference))
+    #set ($bclass = $xwiki.getClass('Bookmarklet.BookmarkletClass'))
+    &lt;form id='doCreate' action="$document.getURL('edit')" method="post"&gt;
+    #foreach ($propName in $bclass.getEnabledPropertyNames())
+      #if ($propName.startsWith('mapping'))
+        #set ($propId = $doc.getValue($propName))
+        #if ("$!propId" != "")
+          #set ($propValue = $request.get($propId))
+          #if ("$!propValue" != "")    
+            &lt;input type='hidden' id="$propId" name="$propId" value="$!propValue" /&gt;
+          #end
+        #end
+      #else
+        #set ($propValue = $doc.getValue($propName))
+        &lt;input type='hidden' id="$propName" name="$propName" value="$!propValue" /&gt;
+      #end
+    #end
+    &lt;/form&gt;
+    &lt;script type='text/javascript'&gt;$('doCreate').submit();&lt;/script&gt;
+  #end
+#end
+$xwiki.get('jsfx').use('uicomponents/widgets/validation/livevalidation_prototype.js')##
+$xwiki.get('ssfx').use('uicomponents/widgets/validation/livevalidation.css', true)##
+&lt;script type="text/javascript"&gt;
+//&lt;![CDATA[
+  XWiki.createPage = {
+    spaceValidator : {},
+    pageValidator : {},
+    currentSpaceInclusionParameters : {},
+    /**
+     * Create Page Field Validator.
+     */
+    initPageValidator : function() {
+      this.pageValidator = new LiveValidation($$('.main [name=page]')[0], { validMessage: "$msg.get('core.validation.valid.message')" });
+      this.pageValidator.add(Validate.Presence, {
+        failureMessage: "$msg.get('core.validation.required.message')"
+      });
+    },
+    /**
+     * Create Space Field Validator.
+     */
+    initSpaceValidator : function() {
+      this.spaceValidator = new LiveValidation($$('.main [name=space]')[0], { validMessage: "$msg.get('core.validation.valid.message')" });
+      this.spaceValidator.add(Validate.Presence, {
+         failureMessage: "$msg.get('core.validation.required.message')"
+      });
+    },
+    /**
+     * Update Space Field Validator, allows to specify a list of allowed spaces for the field.
+     */
+    updateSpaceValidator : function(values, failureMessage) {
+      if(values.length &gt; 0) {
+        this.currentSpaceInclusionParameters = {
+          within: values,
+          failureMessage: failureMessage
+        };
+        this.spaceValidator.add(Validate.Inclusion, this.currentSpaceInclusionParameters);
+      } else {
+        this.spaceValidator.remove(Validate.Inclusion, this.currentSpaceInclusionParameters);
+      }
+      this.spaceValidator.validate();
+    }
+  };
+//]]&gt;
+&lt;/script&gt;
+## 
+## Display the form.
+## 
+&lt;form id='createForm' name='createForm' action="$doc.getURL('view')" method="post" class="xform third"&gt;
+  &lt;div&gt;
+  ## 
+  ## Page creation
+  ##
+  #set ($jsValidationInitializersContainer = [])  
+  ##&lt;input type='hidden' name='xpage' value='embed' /&gt;
+  ##&lt;input type='hidden' name='xsource' value="$escapetool.url($!request.xsource)" /&gt;
+  #set ($bclass = $xwiki.getClass('Bookmarklet.BookmarkletClass'))
+  #foreach ($propName in $bclass.getEnabledPropertyNames())
+    #if ($propName.startsWith('mapping'))
+      #set ($propId = $doc.getValue($propName))
+      #if ("$!propId" != "")
+        #set ($propValue = $request.get($propId))
+        #if ("$!propValue" != "")
+          #if ($propName == 'mappingSelection')
+            #set ($propValue = $services.bookmarkletutils.convertHTML($propValue, 'xwiki/2.1'))
+          #end
+          &lt;input type='hidden' id="$propId" name="$propId" value="$!propValue" /&gt;
+        #end
+      #end
+    ##else
+      ##set ($propValue = $doc.getValue($propName))
+      ##&lt;input type='hidden' id="$propName" name="$propName" value="$!propValue" /&gt;
+    #end
+  #end
+  &lt;input type="hidden" name="parent" value="$!{escapetool.xml($parent)}"/&gt;
+  ## 
+  ## Space field
+  ##    
+  #if($space == '')
+    &lt;dl&gt;
+      &lt;dt&gt;
+        &lt;label for="space"&gt;$msg.get('core.create.space')&lt;/label&gt;
+        &lt;span class="xHint"&gt;$msg.get('core.create.page.space.hint')&lt;/span&gt;
+      &lt;/dt&gt;
+      &lt;dd&gt;
+        &lt;input type="text" id="space" size="60" name="space" class="suggestSpaces" value="$!{escapetool.xml($defaultSpace)}"/&gt;
+      &lt;/dd&gt;
+    &lt;/dl&gt;
+    #set($discard = $jsValidationInitializersContainer.add("XWiki.createPage.initSpaceValidator();"))
+  #else
+    &lt;input type="hidden" id="space" name="space" value="$!{escapetool.xml($space)}" /&gt;
+  #end
+  ## 
+  ## Page field
+  ## 
+  #if($page == '')
+    &lt;dl&gt;
+      &lt;dt&gt;
+        &lt;label for="page"&gt;$msg.get('core.create.page')&lt;/label&gt;
+        &lt;span class="xHint"&gt;$msg.get('core.create.page.hint')&lt;/span&gt;
+      &lt;/dt&gt;
+      &lt;dd&gt;
+        #set ($pageText = $msg.get('core.create.pageText'))
+        &lt;input type="text" id="page" size="60" name="page" value="$pageText" class="withTip"/&gt;
+      &lt;/dd&gt;
+    &lt;/dl&gt;
+    #set($discard = $jsValidationInitializersContainer.add("XWiki.createPage.initPageValidator();"))
+  #else
+    &lt;input type="hidden" id="page" name="page" value="$!{escapetool.xml($page)}" /&gt;
+  #end
+  ## 
+  ## Output JavaScript validation code
+  ## 
+  &lt;script type="text/javascript"&gt;
+  //&lt;![CDATA[
+    Event.observe(document, 'xwiki:dom:loaded', function() {
+      #foreach($initializer in $jsValidationInitializersContainer)
+        $initializer
+      #end
+    }.bindAsEventListener(XWiki.createPage));
+  //]]&gt;
+  &lt;/script&gt;
+  &lt;div class="buttons"&gt;
+    &lt;span class="buttonwrapper"&gt;
+      &lt;input name="createpage" id="createpage" type="submit" class="button" value="$msg.get('create')"/&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+{{/html}}
+{{/velocity}}</content></xwikidoc>
