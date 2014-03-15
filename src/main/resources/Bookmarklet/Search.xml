@@ -1,32 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xwikidoc version="1.1">
   <web>Bookmarklet</web>
-  <name>New</name>
+  <name>Search</name>
   <language/>
   <defaultLanguage>en</defaultLanguage>
   <translation>0</translation>
   <creator>XWiki.Admin</creator>
-  <creationDate>1394860978000</creationDate>
+  <creationDate>1394860985000</creationDate>
   <parent/>
   <author>XWiki.Admin</author>
   <customClass/>
   <contentAuthor>XWiki.Admin</contentAuthor>
-  <date>1394860978000</date>
-  <contentUpdateDate>1394860978000</contentUpdateDate>
-  <version>1.1</version>
-  <title>New wiki page</title>
+  <date>1394872367000</date>
+  <contentUpdateDate>1394872367000</contentUpdateDate>
+  <version>1.4</version>
+  <title/>
   <defaultTemplate/>
   <validationScript/>
-  <comment>Imported from XAR</comment>
-  <minorEdit/>
+  <comment>clear view right for XWiki.XWikiGuest</comment>
+  <minorEdit>true</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden/>
   <content/>
   <object>
-    <name>Bookmarklet.New</name>
+    <name>Bookmarklet.Search</name>
     <number>0</number>
     <className>Bookmarklet.BookmarkletClass</className>
-    <guid>3fce46a4-f9db-4601-96bb-69ca740d2557</guid>
+    <guid>dce956d2-2ad5-4cba-abfa-aee352819933</guid>
     <class>
       <name>Bookmarklet.BookmarkletClass</name>
       <customClass/>
@@ -238,19 +238,19 @@
       </withPreview>
     </class>
     <property>
-      <action>edit</action>
+      <action>view</action>
     </property>
     <property>
       <class/>
     </property>
     <property>
-      <conversionSyntax>xwiki/2.1</conversionSyntax>
+      <conversionSyntax>plain/1.0</conversionSyntax>
     </property>
     <property>
       <description/>
     </property>
     <property>
-      <page/>
+      <page>Search</page>
     </property>
     <property>
       <pageUnique>0</pageUnique>
@@ -262,63 +262,23 @@
       <sheet/>
     </property>
     <property>
-      <space/>
+      <space>Main</space>
     </property>
     <property>
       <template/>
     </property>
     <property>
-      <title>New wiki page</title>
+      <title>Search bookmarklet</title>
     </property>
     <property>
-      <withPreview>1</withPreview>
+      <withPreview>0</withPreview>
     </property>
   </object>
   <object>
-    <name>Bookmarklet.New</name>
+    <name>Bookmarklet.Search</name>
     <number>0</number>
     <className>Bookmarklet.ParameterMappingClass</className>
-    <guid>541db5bf-58d9-40a4-ab6e-df3c3fc11c0d</guid>
-    <class>
-      <name>Bookmarklet.ParameterMappingClass</name>
-      <customClass/>
-      <customMapping/>
-      <defaultViewSheet/>
-      <defaultEditSheet/>
-      <defaultWeb/>
-      <nameField/>
-      <validationScript/>
-      <getparam>
-        <disabled>0</disabled>
-        <name>getparam</name>
-        <number>1</number>
-        <prettyName>getparam</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </getparam>
-      <putparam>
-        <disabled>0</disabled>
-        <name>putparam</name>
-        <number>2</number>
-        <prettyName>putparam</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </putparam>
-    </class>
-    <property>
-      <getparam>xtitle</getparam>
-    </property>
-    <property>
-      <putparam>title</putparam>
-    </property>
-  </object>
-  <object>
-    <name>Bookmarklet.New</name>
-    <number>1</number>
-    <className>Bookmarklet.ParameterMappingClass</className>
-    <guid>62c57346-6e38-4337-808e-3a12bc0951a2</guid>
+    <guid>97b297cd-ac13-48d8-bd63-3507e1ea842d</guid>
     <class>
       <name>Bookmarklet.ParameterMappingClass</name>
       <customClass/>
@@ -351,142 +311,7 @@
       <getparam>xselection</getparam>
     </property>
     <property>
-      <putparam>content</putparam>
-    </property>
-  </object>
-  <object>
-    <name>Bookmarklet.New</name>
-    <number>0</number>
-    <className>XWiki.LayoutClass</className>
-    <guid>a4372e80-4a91-4895-af83-4951e5ab9d1e</guid>
-    <class>
-      <name>XWiki.LayoutClass</name>
-      <customClass/>
-      <customMapping/>
-      <defaultViewSheet/>
-      <defaultEditSheet/>
-      <defaultWeb/>
-      <nameField/>
-      <validationScript/>
-      <displayContentMenu>
-        <customDisplay/>
-        <defaultValue/>
-        <disabled>0</disabled>
-        <displayFormType>select</displayFormType>
-        <displayType/>
-        <name>displayContentMenu</name>
-        <number>2</number>
-        <prettyName>displayContentMenu</prettyName>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-      </displayContentMenu>
-      <displayDocExtra>
-        <customDisplay/>
-        <defaultValue/>
-        <disabled>0</disabled>
-        <displayFormType>select</displayFormType>
-        <displayType/>
-        <name>displayDocExtra</name>
-        <number>4</number>
-        <prettyName>displayDocExtra</prettyName>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-      </displayDocExtra>
-      <displayHierarchy>
-        <customDisplay/>
-        <defaultValue/>
-        <disabled>0</disabled>
-        <displayFormType>select</displayFormType>
-        <displayType/>
-        <name>displayHierarchy</name>
-        <number>7</number>
-        <prettyName>displayHierarchy</prettyName>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-      </displayHierarchy>
-      <displayMainMenu>
-        <customDisplay/>
-        <defaultValue/>
-        <disabled>0</disabled>
-        <displayFormType>select</displayFormType>
-        <displayType/>
-        <name>displayMainMenu</name>
-        <number>1</number>
-        <prettyName>displayMainMenu</prettyName>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-      </displayMainMenu>
-      <displayShortcuts>
-        <customDisplay/>
-        <defaultValue/>
-        <disabled>0</disabled>
-        <displayFormType>select</displayFormType>
-        <displayType/>
-        <name>displayShortcuts</name>
-        <number>3</number>
-        <prettyName>displayShortcuts</prettyName>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-      </displayShortcuts>
-      <showLeftPanels>
-        <customDisplay/>
-        <defaultValue/>
-        <disabled>0</disabled>
-        <displayFormType>select</displayFormType>
-        <displayType/>
-        <name>showLeftPanels</name>
-        <number>5</number>
-        <prettyName>showLeftPanels</prettyName>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-      </showLeftPanels>
-      <showRightPanels>
-        <customDisplay/>
-        <defaultValue/>
-        <disabled>0</disabled>
-        <displayFormType>select</displayFormType>
-        <displayType/>
-        <name>showRightPanels</name>
-        <number>6</number>
-        <prettyName>showRightPanels</prettyName>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-      </showRightPanels>
-    </class>
-    <property>
-      <displayContentMenu>0</displayContentMenu>
-    </property>
-    <property>
-      <displayDocExtra>0</displayDocExtra>
-    </property>
-    <property>
-      <displayHierarchy/>
-    </property>
-    <property>
-      <displayMainMenu>0</displayMainMenu>
-    </property>
-    <property>
-      <displayShortcuts>0</displayShortcuts>
-    </property>
-    <property>
-      <showLeftPanels>0</showLeftPanels>
-    </property>
-    <property>
-      <showRightPanels>0</showRightPanels>
+      <putparam>text</putparam>
     </property>
   </object>
 </xwikidoc>

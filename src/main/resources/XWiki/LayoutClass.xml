@@ -1,119 +1,133 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xwikidoc>
-<web>XWiki</web>
-<name>LayoutClass</name>
-<language></language>
-<defaultLanguage></defaultLanguage>
-<translation>0</translation>
-<parent></parent>
-<creator>XWiki.Admin</creator>
-<author>XWiki.Admin</author>
-<customClass></customClass>
-<contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1372430151000</creationDate>
-<date>1372430298000</date>
-<contentUpdateDate>1372430298000</contentUpdateDate>
-<version>1.7</version>
-<title></title>
-<template></template>
-<defaultTemplate></defaultTemplate>
-<validationScript></validationScript>
-<comment>Updated class property</comment>
-<minorEdit>true</minorEdit>
-<syntaxId>xwiki/2.1</syntaxId>
-<hidden>false</hidden>
-<class>
-<name>XWiki.LayoutClass</name>
-<customClass></customClass>
-<customMapping></customMapping>
-<defaultViewSheet></defaultViewSheet>
-<defaultEditSheet></defaultEditSheet>
-<defaultWeb></defaultWeb>
-<nameField></nameField>
-<validationScript></validationScript>
-<displayContentMenu>
-<customDisplay></customDisplay>
-<defaultValue></defaultValue>
-<disabled>0</disabled>
-<displayFormType>select</displayFormType>
-<displayType></displayType>
-<name>displayContentMenu</name>
-<number>2</number>
-<prettyName>displayContentMenu</prettyName>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-</displayContentMenu>
-<displayDocExtra>
-<customDisplay></customDisplay>
-<defaultValue></defaultValue>
-<disabled>0</disabled>
-<displayFormType>select</displayFormType>
-<displayType></displayType>
-<name>displayDocExtra</name>
-<number>4</number>
-<prettyName>displayDocExtra</prettyName>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-</displayDocExtra>
-<displayMainMenu>
-<customDisplay></customDisplay>
-<defaultValue></defaultValue>
-<disabled>0</disabled>
-<displayFormType>select</displayFormType>
-<displayType></displayType>
-<name>displayMainMenu</name>
-<number>1</number>
-<prettyName>displayMainMenu</prettyName>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-</displayMainMenu>
-<displayShortcuts>
-<customDisplay></customDisplay>
-<defaultValue></defaultValue>
-<disabled>0</disabled>
-<displayFormType>select</displayFormType>
-<displayType></displayType>
-<name>displayShortcuts</name>
-<number>3</number>
-<prettyName>displayShortcuts</prettyName>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-</displayShortcuts>
-<showLeftPanels>
-<customDisplay></customDisplay>
-<defaultValue></defaultValue>
-<disabled>0</disabled>
-<displayFormType>select</displayFormType>
-<displayType></displayType>
-<name>showLeftPanels</name>
-<number>5</number>
-<prettyName>showLeftPanels</prettyName>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-</showLeftPanels>
-<showRightPanels>
-<customDisplay></customDisplay>
-<defaultValue></defaultValue>
-<disabled>0</disabled>
-<displayFormType>select</displayFormType>
-<displayType></displayType>
-<name>showRightPanels</name>
-<number>6</number>
-<prettyName>showRightPanels</prettyName>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-</showRightPanels>
-</class>
-<content></content></xwikidoc>
+<?xml version='1.0' encoding='UTF-8'?>
+<xwikidoc version="1.1">
+  <web>XWiki</web>
+  <name>LayoutClass</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <creator>XWiki.Admin</creator>
+  <creationDate>1394861074000</creationDate>
+  <parent/>
+  <author>XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>XWiki.Admin</contentAuthor>
+  <date>1394861074000</date>
+  <contentUpdateDate>1394861074000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment>Imported from XAR</comment>
+  <minorEdit/>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden/>
+  <content/>
+  <class>
+    <name>XWiki.LayoutClass</name>
+    <customClass/>
+    <customMapping/>
+    <defaultViewSheet/>
+    <defaultEditSheet/>
+    <defaultWeb/>
+    <nameField/>
+    <validationScript/>
+    <displayContentMenu>
+      <customDisplay/>
+      <defaultValue/>
+      <disabled>0</disabled>
+      <displayFormType>select</displayFormType>
+      <displayType/>
+      <name>displayContentMenu</name>
+      <number>2</number>
+      <prettyName>displayContentMenu</prettyName>
+      <unmodifiable>0</unmodifiable>
+      <validationMessage/>
+      <validationRegExp/>
+      <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+    </displayContentMenu>
+    <displayDocExtra>
+      <customDisplay/>
+      <defaultValue/>
+      <disabled>0</disabled>
+      <displayFormType>select</displayFormType>
+      <displayType/>
+      <name>displayDocExtra</name>
+      <number>4</number>
+      <prettyName>displayDocExtra</prettyName>
+      <unmodifiable>0</unmodifiable>
+      <validationMessage/>
+      <validationRegExp/>
+      <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+    </displayDocExtra>
+    <displayHierarchy>
+      <customDisplay/>
+      <defaultValue/>
+      <disabled>0</disabled>
+      <displayFormType>select</displayFormType>
+      <displayType/>
+      <name>displayHierarchy</name>
+      <number>7</number>
+      <prettyName>displayHierarchy</prettyName>
+      <unmodifiable>0</unmodifiable>
+      <validationMessage/>
+      <validationRegExp/>
+      <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+    </displayHierarchy>
+    <displayMainMenu>
+      <customDisplay/>
+      <defaultValue/>
+      <disabled>0</disabled>
+      <displayFormType>select</displayFormType>
+      <displayType/>
+      <name>displayMainMenu</name>
+      <number>1</number>
+      <prettyName>displayMainMenu</prettyName>
+      <unmodifiable>0</unmodifiable>
+      <validationMessage/>
+      <validationRegExp/>
+      <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+    </displayMainMenu>
+    <displayShortcuts>
+      <customDisplay/>
+      <defaultValue/>
+      <disabled>0</disabled>
+      <displayFormType>select</displayFormType>
+      <displayType/>
+      <name>displayShortcuts</name>
+      <number>3</number>
+      <prettyName>displayShortcuts</prettyName>
+      <unmodifiable>0</unmodifiable>
+      <validationMessage/>
+      <validationRegExp/>
+      <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+    </displayShortcuts>
+    <showLeftPanels>
+      <customDisplay/>
+      <defaultValue/>
+      <disabled>0</disabled>
+      <displayFormType>select</displayFormType>
+      <displayType/>
+      <name>showLeftPanels</name>
+      <number>5</number>
+      <prettyName>showLeftPanels</prettyName>
+      <unmodifiable>0</unmodifiable>
+      <validationMessage/>
+      <validationRegExp/>
+      <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+    </showLeftPanels>
+    <showRightPanels>
+      <customDisplay/>
+      <defaultValue/>
+      <disabled>0</disabled>
+      <displayFormType>select</displayFormType>
+      <displayType/>
+      <name>showRightPanels</name>
+      <number>6</number>
+      <prettyName>showRightPanels</prettyName>
+      <unmodifiable>0</unmodifiable>
+      <validationMessage/>
+      <validationRegExp/>
+      <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+    </showRightPanels>
+  </class>
+</xwikidoc>

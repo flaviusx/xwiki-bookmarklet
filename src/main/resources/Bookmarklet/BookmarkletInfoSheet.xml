@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xwikidoc version="1.1">
+  <web>Bookmarklet</web>
+  <name>BookmarkletInfoSheet</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.Admin</creator>
+  <creationDate>1394860956000</creationDate>
+  <parent/>
+  <author>XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>XWiki.Admin</contentAuthor>
+  <date>1394863941000</date>
+  <contentUpdateDate>1394863941000</contentUpdateDate>
+  <version>1.8</version>
+  <title>$doc.display('title')</title>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>true</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden/>
+  <content>{{velocity}}&#xd;
+**Bookmarklet code:**&#xd;
+#set ($url = $doc.getURL('view', 'xpage=bookmarklet'))&#xd;
+{{code language='javascript'}}&#xd;
+javascript:(function(){document.body.appendChild(document.createElement('script')).src="http://xwiki.fluenttype.com${escapetool.xml($url)}";})();&#xd;
+{{/code}}&#xd;
+&#xd;
+$doc.display('description')&#xd;
+&#xd;
+== Configurations ==&#xd;
+#set ($bobj = $doc.getObject('Bookmarklet.BookmarkletClass'))&#xd;
+#set ($bclass = $bobj.xWikiClass)&#xd;
+#set ($appClass = "$!bobj.getProperty('class').value")&#xd;
+; $bclass.get('class').prettyName&#xd;
+: #if ($context.action != 'edit') #if ($appClass != "")[[$appClass>>$appClass]]#end #else $!bobj.get('class') #end&#xd;
+&#xd;
+#set ($appTemplate = "$!bobj.getProperty('template').value")&#xd;
+; $bclass.get('template').prettyName&#xd;
+: #if ($context.action != 'edit') #if ($appTemplate != "")[[$appTemplate>>$appTemplate]]#end #else $!bobj.get('template') #end&#xd;
+&#xd;
+#set ($appSheet = "$!bobj.getProperty('sheet').value")&#xd;
+; $bclass.get('sheet').prettyName&#xd;
+: #if ($context.action != 'edit') #if ($appSheet != "")[[$appSheet>>$appSheet]]#end #else $!bobj.get('sheet') #end&#xd;
+&#xd;
+#set ($appParent = "$!bobj.getProperty('parent').value")&#xd;
+; $bclass.get('parent').prettyName&#xd;
+: #if ($context.action != 'edit') #if ($appParent != "")[[$appParent>>$appParent]]#end #else $!bobj.get('parent') #end&#xd;
+&#xd;
+; $bclass.get('space').prettyName&#xd;
+: $!bobj.get('space')&#xd;
+; $bclass.get('page').prettyName&#xd;
+: $!bobj.get('page')&#xd;
+; $bclass.get('action').prettyName&#xd;
+: $!bobj.get('action')&#xd;
+; $bclass.get('withPreview').prettyName&#xd;
+: $!bobj.get('withPreview')&#xd;
+; $bclass.get('pageUnique').prettyName&#xd;
+: $!bobj.get('pageUnique')&#xd;
+; $bclass.get('conversionSyntax').prettyName&#xd;
+: $!bobj.get('conversionSyntax')&#xd;
+&#xd;
+== Application layout ==&#xd;
+* $doc.displayPrettyName('displayMainMenu'): $doc.display('displayMainMenu')&#xd;
+* $doc.displayPrettyName('displayContentMenu'): $doc.display('displayContentMenu')&#xd;
+* $doc.displayPrettyName('displayShortcuts'): $doc.display('displayShortcuts')&#xd;
+* $doc.displayPrettyName('displayDocExtra'): $doc.display('displayDocExtra')&#xd;
+* $doc.displayPrettyName('showLeftPanels'): $doc.display('showLeftPanels')&#xd;
+* $doc.displayPrettyName('showRightPanels'): $doc.display('showRightPanels')&#xd;
+* $doc.displayPrettyName('displayHierarchy'): $doc.display('displayHierarchy')&#xd;
+{{/velocity}}</content>
+</xwikidoc>

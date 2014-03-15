@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xwikidoc version="1.1">
+  <web>ScriptServices</web>
+  <name>ApiTools</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.Admin</creator>
+  <creationDate>1394862799000</creationDate>
+  <parent/>
+  <author>XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>XWiki.Admin</contentAuthor>
+  <date>1394870423000</date>
+  <contentUpdateDate>1394870420000</contentUpdateDate>
+  <version>2.1</version>
+  <title/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit/>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden/>
+  <content>{{groovy output="false"}}&#xd;
+import org.apache.commons.lang3.StringUtils;&#xd;
+import org.xwiki.component.descriptor.*;&#xd;
+import org.xwiki.script.service.*;&#xd;
+import org.xwiki.context.*;&#xd;
+import com.xpn.xwiki.api.*;&#xd;
+import com.xpn.xwiki.web.*;&#xd;
+import com.xpn.xwiki.*;&#xd;
+&#xd;
+class ApiTools implements ScriptService {&#xd;
+  Execution e;&#xd;
+  String stripAccents(String str) {&#xd;
+    return StringUtils.stripAccents(str);&#xd;
+  }&#xd;
+  String trim(String str) {&#xd;
+    return StringUtils.trimToEmpty(str);&#xd;
+  }&#xd;
+  String stripControlChars(String str) {&#xd;
+    return str.replaceAll("[^a-zA-Z0-9_\\s-?!&amp;]", "");&#xd;
+  }&#xd;
+  String stripSpecialChars(String str) {&#xd;
+    return str.replaceAll("[^a-zA-Z0-9_-]", "");&#xd;
+  }  &#xd;
+  String trimPageName(String pageName) {&#xd;
+    def name = pageName;&#xd;
+    name = stripAccents(name);&#xd;
+    name = stripSpecialChars(name); &#xd;
+    return name;&#xd;
+  }&#xd;
+  String convertHTML(String text, String syntaxId) {&#xd;
+    def Text = '';&#xd;
+    try {&#xd;
+      def htmlConverter = Utils.getComponent(org.xwiki.gwt.wysiwyg.client.converter.HTMLConverter.class);&#xd;
+      def importer = Utils.getComponent(org.xwiki.gwt.wysiwyg.client.plugin.importer.ImportService.class);&#xd;
+      Map&lt;String, String> params = new HashMap&lt;String, String>();&#xd;
+      params.put("filterStyles", "strict");&#xd;
+      params.put("namespacesAware", "false");&#xd;
+      Text = importer.cleanOfficeHTML(text, "wysiwyg", params);&#xd;
+      Text = htmlConverter.fromHTML(Text, syntaxId);&#xd;
+    } catch(e) {&#xd;
+      print e;&#xd;
+    }&#xd;
+    return Text;&#xd;
+  }&#xd;
+}&#xd;
+if (!Utils.getComponentManager().hasComponent(ScriptService.class, 'apitools')) {&#xd;
+  DefaultComponentDescriptor descriptor = new DefaultComponentDescriptor(implementation: ApiTools.class, role: ScriptService.class, roleHint: 'apitools');&#xd;
+  DefaultComponentDependency dep = new DefaultComponentDependency(name: 'e', role: Execution.class, roleHint: 'default');&#xd;
+  descriptor.addComponentDependency(dep);  &#xd;
+  Utils.getComponentManager().registerComponent(descriptor);&#xd;
+} else if (doc.getName() == 'ApiTools') {&#xd;
+  Utils.getComponentManager().unregisterComponent(ScriptService.class, 'apitools');&#xd;
+}&#xd;
+{{/groovy}}</content>
+</xwikidoc>

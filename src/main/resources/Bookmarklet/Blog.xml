@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xwikidoc version="1.1">
   <web>Bookmarklet</web>
-  <name>New</name>
+  <name>Blog</name>
   <language/>
   <defaultLanguage>en</defaultLanguage>
   <translation>0</translation>
   <creator>XWiki.Admin</creator>
-  <creationDate>1394860978000</creationDate>
+  <creationDate>1394860948000</creationDate>
   <parent/>
   <author>XWiki.Admin</author>
   <customClass/>
   <contentAuthor>XWiki.Admin</contentAuthor>
-  <date>1394860978000</date>
-  <contentUpdateDate>1394860978000</contentUpdateDate>
+  <date>1394860948000</date>
+  <contentUpdateDate>1394860948000</contentUpdateDate>
   <version>1.1</version>
-  <title>New wiki page</title>
+  <title>New blog post</title>
   <defaultTemplate/>
   <validationScript/>
   <comment>Imported from XAR</comment>
@@ -23,10 +23,10 @@
   <hidden/>
   <content/>
   <object>
-    <name>Bookmarklet.New</name>
+    <name>Bookmarklet.Blog</name>
     <number>0</number>
     <className>Bookmarklet.BookmarkletClass</className>
-    <guid>3fce46a4-f9db-4601-96bb-69ca740d2557</guid>
+    <guid>8430b9b6-f7dd-4b2e-bc9d-a79b192cd6a1</guid>
     <class>
       <name>Bookmarklet.BookmarkletClass</name>
       <customClass/>
@@ -241,46 +241,46 @@
       <action>edit</action>
     </property>
     <property>
-      <class/>
+      <class>Blog.BlogPostClass</class>
     </property>
     <property>
       <conversionSyntax>xwiki/2.1</conversionSyntax>
     </property>
     <property>
-      <description/>
+      <description>Adding blog post using bookmarklet.</description>
     </property>
     <property>
-      <page/>
+      <page>$request.get('xtitle')</page>
     </property>
     <property>
-      <pageUnique>0</pageUnique>
+      <pageUnique>1</pageUnique>
     </property>
     <property>
-      <parent/>
+      <parent>Blog.WebHome</parent>
     </property>
     <property>
-      <sheet/>
+      <sheet>Blog.BlogPostSheet</sheet>
     </property>
     <property>
-      <space/>
+      <space>Blog</space>
     </property>
     <property>
-      <template/>
+      <template>Blog.BlogPostTemplate</template>
     </property>
     <property>
-      <title>New wiki page</title>
+      <title>Blog bookmarklet</title>
     </property>
     <property>
       <withPreview>1</withPreview>
     </property>
   </object>
   <object>
-    <name>Bookmarklet.New</name>
+    <name>Bookmarklet.Blog</name>
     <number>0</number>
-    <className>Bookmarklet.ParameterMappingClass</className>
-    <guid>541db5bf-58d9-40a4-ab6e-df3c3fc11c0d</guid>
+    <className>Bookmarklet.PropertyMappingClass</className>
+    <guid>f72e7b72-384c-490d-b656-688cfb1999aa</guid>
     <class>
-      <name>Bookmarklet.ParameterMappingClass</name>
+      <name>Bookmarklet.PropertyMappingClass</name>
       <customClass/>
       <customMapping/>
       <defaultViewSheet/>
@@ -288,39 +288,47 @@
       <defaultWeb/>
       <nameField/>
       <validationScript/>
-      <getparam>
+      <parameterName>
+        <customDisplay/>
         <disabled>0</disabled>
-        <name>getparam</name>
+        <name>parameterName</name>
         <number>1</number>
-        <prettyName>getparam</prettyName>
+        <picker>0</picker>
+        <prettyName>parameterName</prettyName>
         <size>30</size>
         <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </getparam>
-      <putparam>
+      </parameterName>
+      <property>
+        <customDisplay/>
         <disabled>0</disabled>
-        <name>putparam</name>
+        <name>property</name>
         <number>2</number>
-        <prettyName>putparam</prettyName>
+        <picker>0</picker>
+        <prettyName>property</prettyName>
         <size>30</size>
         <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </putparam>
+      </property>
     </class>
     <property>
-      <getparam>xtitle</getparam>
+      <parameterName>xtitle</parameterName>
     </property>
     <property>
-      <putparam>title</putparam>
+      <property>Blog.BlogPostClass.title</property>
     </property>
   </object>
   <object>
-    <name>Bookmarklet.New</name>
+    <name>Bookmarklet.Blog</name>
     <number>1</number>
-    <className>Bookmarklet.ParameterMappingClass</className>
-    <guid>62c57346-6e38-4337-808e-3a12bc0951a2</guid>
+    <className>Bookmarklet.PropertyMappingClass</className>
+    <guid>b1e8fa27-a260-4de6-9ebb-b4c3313a741b</guid>
     <class>
-      <name>Bookmarklet.ParameterMappingClass</name>
+      <name>Bookmarklet.PropertyMappingClass</name>
       <customClass/>
       <customMapping/>
       <defaultViewSheet/>
@@ -328,37 +336,45 @@
       <defaultWeb/>
       <nameField/>
       <validationScript/>
-      <getparam>
+      <parameterName>
+        <customDisplay/>
         <disabled>0</disabled>
-        <name>getparam</name>
+        <name>parameterName</name>
         <number>1</number>
-        <prettyName>getparam</prettyName>
+        <picker>0</picker>
+        <prettyName>parameterName</prettyName>
         <size>30</size>
         <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </getparam>
-      <putparam>
+      </parameterName>
+      <property>
+        <customDisplay/>
         <disabled>0</disabled>
-        <name>putparam</name>
+        <name>property</name>
         <number>2</number>
-        <prettyName>putparam</prettyName>
+        <picker>0</picker>
+        <prettyName>property</prettyName>
         <size>30</size>
         <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </putparam>
+      </property>
     </class>
     <property>
-      <getparam>xselection</getparam>
+      <parameterName>xselection</parameterName>
     </property>
     <property>
-      <putparam>content</putparam>
+      <property>Blog.BlogPostClass.content</property>
     </property>
   </object>
   <object>
-    <name>Bookmarklet.New</name>
+    <name>Bookmarklet.Blog</name>
     <number>0</number>
     <className>XWiki.LayoutClass</className>
-    <guid>a4372e80-4a91-4895-af83-4951e5ab9d1e</guid>
+    <guid>a87d59cb-f194-43bb-8279-838c5d8686c1</guid>
     <class>
       <name>XWiki.LayoutClass</name>
       <customClass/>

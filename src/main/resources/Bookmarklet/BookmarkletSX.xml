@@ -1,0 +1,344 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xwikidoc version="1.1">
+  <web>Bookmarklet</web>
+  <name>BookmarkletSX</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.Admin</creator>
+  <creationDate>1394860970000</creationDate>
+  <parent/>
+  <author>XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>XWiki.Admin</contentAuthor>
+  <date>1394872593000</date>
+  <contentUpdateDate>1394860970000</contentUpdateDate>
+  <version>1.2</version>
+  <title/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>true</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden/>
+  <content/>
+  <object>
+    <name>Bookmarklet.BookmarkletSX</name>
+    <number>0</number>
+    <className>XWiki.JavaScriptExtension</className>
+    <guid>da8bb3ad-a50f-4975-bc3d-5cb891a936c8</guid>
+    <class>
+      <name>XWiki.JavaScriptExtension</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <cache>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>cache</name>
+        <number>5</number>
+        <prettyName>Caching policy</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>long|short|default|forbid</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </cache>
+      <code>
+        <disabled>0</disabled>
+        <name>code</name>
+        <number>2</number>
+        <prettyName>Code</prettyName>
+        <rows>20</rows>
+        <size>50</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </code>
+      <name>
+        <disabled>0</disabled>
+        <name>name</name>
+        <number>1</number>
+        <prettyName>Name</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </name>
+      <parse>
+        <disabled>0</disabled>
+        <displayFormType>select</displayFormType>
+        <displayType>yesno</displayType>
+        <name>parse</name>
+        <number>4</number>
+        <prettyName>Parse content</prettyName>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+      </parse>
+      <use>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>use</name>
+        <number>3</number>
+        <prettyName>Use this extension</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </use>
+    </class>
+    <property>
+      <cache>long</cache>
+    </property>
+    <property>
+      <code>#set ($ssxDoc = $xwiki.getDocument('Bookmarklet.BookmarkletSX'))&#xd;
+XWiki.ssx.use('Bookmarklet', "$ssxDoc.getExternalURL('ssx', 'language=en')");&#xd;
+&#xd;
+Bookmarklet = {};&#xd;
+Bookmarklet.open = function(url, mapping) {&#xd;
+  this.url = url;&#xd;
+  this.mapping = mapping;  &#xd;
+  var rangyHTML = '';    &#xd;
+  try {&#xd;
+    var rangySelection = rangy.getSelection();&#xd;
+    rangySelection.refresh(true);&#xd;
+    rangyHTML = rangySelection.toHtml();&#xd;
+  } catch(e) {}  &#xd;
+  JQuery(document.body).append("&lt;div id='divjrangy' style='display:none;'&gt;&lt;/div>");&#xd;
+  if (rangyHTML != '') {&#xd;
+    rangyHTML = rangyHTML.replace(new RegExp('&lt;script[^>]*>([\\S\\s]*?)&lt;\/script\\s*>', 'img'), '');&#xd;
+    rangyHTML = rangyHTML.replace(new RegExp('&lt;iframe[^>]*>([\\S\\s]*?)&lt;\/iframe\\s*>', 'img'), '');&#xd;
+    rangyHTML = rangyHTML.replace(new RegExp('&lt;form[^>]*>([\\S\\s]*?)&lt;\/form\\s*>', 'img'), '');&#xd;
+    rangyHTML = rangyHTML.replace(new RegExp('&lt;noscript[^>]*>([\\S\\s]*?)&lt;\/noscript\\s*>', 'img'), '');&#xd;
+    rangyHTML = rangyHTML.replace(/&lt;!--[\s\S]*?-->/g, '');&#xd;
+    rangyHTML = rangyHTML.replace(/\n|\r/g, '')&#xd;
+    JQuery("#divjrangy").html(rangyHTML);&#xd;
+    try {&#xd;
+    JQuery("#divjrangy").find("[onmouseover]").each(function(){&#xd;
+      JQuery(this).removeAttr('onmouseover');&#xd;
+    });&#xd;
+    } catch(e) {}&#xd;
+    try {&#xd;
+    JQuery("#divjrangy").find("[onmouseout]").each(function(){&#xd;
+      JQuery(this).removeAttr('onmouseout');&#xd;
+    });&#xd;
+    } catch(e) {}&#xd;
+    try {&#xd;
+    JQuery("#divjrangy").find("[onclick]").each(function(){&#xd;
+      JQuery(this).removeAttr('onclick');&#xd;
+    });&#xd;
+    } catch(e) {}&#xd;
+    // expand relative links to extenal links&#xd;
+    try {&#xd;
+    JQuery("#divjrangy").find("a[href]").each(function(){&#xd;
+      var jthis = JQuery(this);&#xd;
+      var href = jthis.attr('href');&#xd;
+      if(href.toLowerCase().indexOf(location.protocol) &lt; 0) {&#xd;
+        jthis.attr('href', location.protocol + '//' + location.hostname+(location.port ? ':'+location.port: '') + '/' + href);&#xd;
+      }&#xd;
+    });&#xd;
+    } catch(e) {}&#xd;
+    // expand img src to external urls&#xd;
+    try {&#xd;
+    JQuery("#divjrangy").find("img[src]").each(function(){&#xd;
+      var jthis = JQuery(this);&#xd;
+      var src = jthis.attr('src');&#xd;
+      if(src.toLowerCase().indexOf(location.protocol) &lt; 0) {&#xd;
+        jthis.attr('src', location.protocol + '//' + location.hostname+(location.port ? ':'+location.port: '') + '/' + src);&#xd;
+      }&#xd;
+    });&#xd;
+    } catch(e) {}&#xd;
+  }&#xd;
+  JQuery(document.body).append("\&#xd;
+    &lt;div id='xdialog'>\&#xd;
+      &lt;div id='xoverlay' style='opacity: 0.5; background-color: black;'>&lt;/div>\&#xd;
+      &lt;div id='xdialog-inner' class='ui-widget-content'>\&#xd;
+        &lt;form id='xform' action='"+ this.url +"' method='post' target='xframe'>\&#xd;
+          &lt;input type='hidden' id='source' name='source' value='' />\&#xd;
+          &lt;input type='hidden' id='xurl' name='"+ this.mapping['_url'] +"' value='' />\&#xd;
+          &lt;input type='hidden' id='xtitle' name='"+ this.mapping['_title'] +"' value='' />\&#xd;
+          &lt;input type='hidden' id='xselection' name='"+ this.mapping['_selection'] +"' />\&#xd;
+        &lt;/form>\&#xd;
+        &lt;iframe id='xframe' name='xframe' src='"+ this.url +"'>&lt;/iframe>\&#xd;
+      &lt;/div>\&#xd;
+    &lt;/div>")&#xd;
+  JQuery('#source').val(window.location.href);&#xd;
+  JQuery('#xurl').val(window.location.href);&#xd;
+  JQuery('#xtitle').val(document.title);&#xd;
+  JQuery('#xselection').val(JQuery("#divjrangy").html());&#xd;
+  JQuery('#divjrangy').remove();&#xd;
+  JQuery('#xform').submit();&#xd;
+  JQuery('#xoverlay').click(function(event){&#xd;
+    Bookmarklet.close();&#xd;
+  });&#xd;
+}&#xd;
+Bookmarklet.login = function(url) {&#xd;
+  JQuery(document.body).append("\&#xd;
+    &lt;div id='xdialog'>\&#xd;
+      &lt;div id='xoverlay' style='opacity: 0.5; background-color: black;'>&lt;/div>\&#xd;
+      &lt;div id='xdialog-inner' class='ui-widget-content'>\&#xd;
+        &lt;form id='xform' action='"+ url +"' method='post' target='xframe'>\&#xd;
+          &lt;input type='hidden' id='source' name='source' value='' />\&#xd;
+          &lt;input type='hidden' id='xurl' name='"+ this.mapping['_url'] +"' value='' />\&#xd;
+        &lt;/form>\&#xd;
+        &lt;iframe id='xframe' name='xframe' src='"+ url +"'>&lt;/iframe>\&#xd;
+      &lt;/div>\&#xd;
+    &lt;/div>")&#xd;
+  JQuery('#xform').submit();&#xd;
+  JQuery('#xoverlay').click(function(event){&#xd;
+    Bookmarklet.close();&#xd;
+  });&#xd;
+}&#xd;
+Bookmarklet.update = function() {&#xd;
+  //var split = window.location.href.split("#=");&#xd;
+  //if (split.length > 1) {&#xd;
+    //var height = split[1];  &#xd;
+    //Bookmarklet.get().xframe.style.height = height + 'px';&#xd;
+ // }&#xd;
+}&#xd;
+Bookmarklet.close = function () {&#xd;
+  //clearInterval(Bookmarklet.intervalID);&#xd;
+  //window.location.href = window.location.href.split('#')[0];&#xd;
+  //document.body.removeChild(this.dialog);&#xd;
+  JQuery('#xdialog').remove();&#xd;
+}</code>
+    </property>
+    <property>
+      <name>BookmarkletJSX</name>
+    </property>
+    <property>
+      <parse>1</parse>
+    </property>
+    <property>
+      <use>onDemand</use>
+    </property>
+  </object>
+  <object>
+    <name>Bookmarklet.BookmarkletSX</name>
+    <number>0</number>
+    <className>XWiki.StyleSheetExtension</className>
+    <guid>023cce8c-ac66-41e7-9b3c-61462d6950be</guid>
+    <class>
+      <name>XWiki.StyleSheetExtension</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <cache>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>cache</name>
+        <number>5</number>
+        <prettyName>Caching policy</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>long|short|default|forbid</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </cache>
+      <code>
+        <disabled>0</disabled>
+        <name>code</name>
+        <number>2</number>
+        <prettyName>Code</prettyName>
+        <rows>20</rows>
+        <size>50</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </code>
+      <name>
+        <disabled>0</disabled>
+        <name>name</name>
+        <number>1</number>
+        <prettyName>Name</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </name>
+      <parse>
+        <disabled>0</disabled>
+        <displayFormType>select</displayFormType>
+        <displayType>yesno</displayType>
+        <name>parse</name>
+        <number>4</number>
+        <prettyName>Parse content</prettyName>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+      </parse>
+      <use>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>use</name>
+        <number>3</number>
+        <prettyName>Use this extension</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </use>
+    </class>
+    <property>
+      <cache>long</cache>
+    </property>
+    <property>
+      <code>.preview-box {&#xd;
+  background-color: #FCFCFC;&#xd;
+  border: 1px solid #EEE;&#xd;
+  padding: 3px;&#xd;
+  margin-top: 20px;&#xd;
+  margin-bottom: 20px;&#xd;
+  padding: 20px 3px 3px;&#xd;
+}&#xd;
+&#xd;
+.preview-box .field {&#xd;
+  background-color: #FFFFFF;&#xd;
+  border: 1px solid #EFEFEF;&#xd;
+  padding: 3px;&#xd;
+  background-color: $theme.get('pageContentBackgroundColor');&#xd;
+  margin-left: 20px;&#xd;
+  margin-right: 20px;&#xd;
+  margin-bottom: 10px;&#xd;
+  padding: 10px;&#xd;
+  overflow: hidden; &#xd;
+}&#xd;
+&#xd;
+.preview-box .label {&#xd;
+  font-weight: 700;&#xd;
+  margin-left: 20px;&#xd;
+  margin-right: 20px;&#xd;
+}</code>
+    </property>
+    <property>
+      <name>BookmarkletSSX</name>
+    </property>
+    <property>
+      <parse/>
+    </property>
+    <property>
+      <use>onDemand</use>
+    </property>
+  </object>
+</xwikidoc>

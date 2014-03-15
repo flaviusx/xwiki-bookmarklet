@@ -1,32 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xwikidoc version="1.1">
   <web>Bookmarklet</web>
-  <name>New</name>
+  <name>AWM</name>
   <language/>
   <defaultLanguage>en</defaultLanguage>
   <translation>0</translation>
   <creator>XWiki.Admin</creator>
-  <creationDate>1394860978000</creationDate>
+  <creationDate>1394860944000</creationDate>
   <parent/>
   <author>XWiki.Admin</author>
   <customClass/>
   <contentAuthor>XWiki.Admin</contentAuthor>
-  <date>1394860978000</date>
-  <contentUpdateDate>1394860978000</contentUpdateDate>
-  <version>1.1</version>
-  <title>New wiki page</title>
+  <date>1394863901000</date>
+  <contentUpdateDate>1394863888000</contentUpdateDate>
+  <version>2.2</version>
+  <title>AWMApplication new entry</title>
   <defaultTemplate/>
   <validationScript/>
-  <comment>Imported from XAR</comment>
-  <minorEdit/>
+  <comment/>
+  <minorEdit>true</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden/>
   <content/>
   <object>
-    <name>Bookmarklet.New</name>
+    <name>Bookmarklet.AWM</name>
     <number>0</number>
     <className>Bookmarklet.BookmarkletClass</className>
-    <guid>3fce46a4-f9db-4601-96bb-69ca740d2557</guid>
+    <guid>e92ab227-5c46-4e37-96be-79ab6b4b713e</guid>
     <class>
       <name>Bookmarklet.BookmarkletClass</name>
       <customClass/>
@@ -241,44 +241,44 @@
       <action>edit</action>
     </property>
     <property>
-      <class/>
+      <class>AWMApplication.AWMApplicationClass</class>
     </property>
     <property>
       <conversionSyntax>xwiki/2.1</conversionSyntax>
     </property>
     <property>
-      <description/>
+      <description>Bookmarklet entry for AWMApplication.</description>
     </property>
     <property>
       <page/>
     </property>
     <property>
-      <pageUnique>0</pageUnique>
+      <pageUnique>1</pageUnique>
     </property>
     <property>
       <parent/>
     </property>
     <property>
-      <sheet/>
+      <sheet>AWMApplication.AWMApplicationSheet</sheet>
     </property>
     <property>
-      <space/>
+      <space>AWMApplication</space>
     </property>
     <property>
-      <template/>
+      <template>AWMApplication.AWMApplicationTemplate</template>
     </property>
     <property>
-      <title>New wiki page</title>
+      <title>AWMApplication bookmarklet</title>
     </property>
     <property>
       <withPreview>1</withPreview>
     </property>
   </object>
   <object>
-    <name>Bookmarklet.New</name>
+    <name>Bookmarklet.AWM</name>
     <number>0</number>
     <className>Bookmarklet.ParameterMappingClass</className>
-    <guid>541db5bf-58d9-40a4-ab6e-df3c3fc11c0d</guid>
+    <guid>adc1ac0b-bfaa-4257-b5f6-6f5076801142</guid>
     <class>
       <name>Bookmarklet.ParameterMappingClass</name>
       <customClass/>
@@ -311,14 +311,14 @@
       <getparam>xtitle</getparam>
     </property>
     <property>
-      <putparam>title</putparam>
+      <putparam>AWMApplication.AWMApplicationClass_0_Title</putparam>
     </property>
   </object>
   <object>
-    <name>Bookmarklet.New</name>
+    <name>Bookmarklet.AWM</name>
     <number>1</number>
     <className>Bookmarklet.ParameterMappingClass</className>
-    <guid>62c57346-6e38-4337-808e-3a12bc0951a2</guid>
+    <guid>6d40d965-736c-48ef-ad12-13ba538c80de</guid>
     <class>
       <name>Bookmarklet.ParameterMappingClass</name>
       <customClass/>
@@ -351,14 +351,54 @@
       <getparam>xselection</getparam>
     </property>
     <property>
-      <putparam>content</putparam>
+      <putparam>AWMApplication.AWMApplicationClass_0_Data</putparam>
     </property>
   </object>
   <object>
-    <name>Bookmarklet.New</name>
+    <name>Bookmarklet.AWM</name>
+    <number>2</number>
+    <className>Bookmarklet.ParameterMappingClass</className>
+    <guid>042f7a9c-f71d-408f-9eff-57649eaf5e03</guid>
+    <class>
+      <name>Bookmarklet.ParameterMappingClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <getparam>
+        <disabled>0</disabled>
+        <name>getparam</name>
+        <number>1</number>
+        <prettyName>getparam</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </getparam>
+      <putparam>
+        <disabled>0</disabled>
+        <name>putparam</name>
+        <number>2</number>
+        <prettyName>putparam</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </putparam>
+    </class>
+    <property>
+      <getparam>xsource</getparam>
+    </property>
+    <property>
+      <putparam>AWMApplication.AWMApplicationClass_0_Source</putparam>
+    </property>
+  </object>
+  <object>
+    <name>Bookmarklet.AWM</name>
     <number>0</number>
     <className>XWiki.LayoutClass</className>
-    <guid>a4372e80-4a91-4895-af83-4951e5ab9d1e</guid>
+    <guid>f027b476-e48c-4c46-9dd8-5b16ae91f7f2</guid>
     <class>
       <name>XWiki.LayoutClass</name>
       <customClass/>
